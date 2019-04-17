@@ -12,6 +12,7 @@ class CreateAuthorRequest extends FormRequest {
 	 * @return bool
 	 */
 	public function authorize() {
+		return true;
 		return $this->user()->can('create', Author::class);
 	}
 
@@ -22,7 +23,7 @@ class CreateAuthorRequest extends FormRequest {
 	 */
 	public function rules() {
 		return [
-			'name' => 'required|string|unique',
+			'name' => 'required|string|unique:authors',
 			'about' => 'required|string'
 		];
 	}

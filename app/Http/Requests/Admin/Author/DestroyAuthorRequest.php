@@ -12,6 +12,7 @@ class DestroyAuthorRequest extends FormRequest {
 	 * @return bool
 	 */
 	public function authorize() {
+		return true;
 		$this->author = $this->route('author');
 		return $this->user()->can('delete', $this->author);
 	}

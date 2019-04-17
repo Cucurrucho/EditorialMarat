@@ -1,0 +1,24 @@
+.hover-border-red{
+
+	> .content {
+
+		padding: 1em;
+	}
+
+	border: 1px solid transparent;
+	border-radius: 4px;
+
+	&:hover{
+
+		border-color: #b61a0e;
+
+	}
+}
+
+.button.is-light.has-text-red {
+	color: #b61a0e;
+}
+
+.is-title-red{
+	color: #b61a0e ;
+}

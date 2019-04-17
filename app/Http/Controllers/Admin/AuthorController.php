@@ -11,11 +11,15 @@ use App\Http\Controllers\Controller;
 
 class AuthorController extends Controller {
 
+	public function index() {
+		$authors = Author::all();
+		return view('admin.authors', compact('authors'));
+	}
 	public function create(CreateAuthorRequest $request){
 		return $request->commit();
 	}
 
-	public function update(UpdateAuthorRequest $request) {
+	public function update(UpdateAuthorRequest $request, Author $author) {
 		return $request->commit();
 	}
 

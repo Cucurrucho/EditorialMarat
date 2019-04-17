@@ -8,6 +8,7 @@ use Illuminate\Foundation\Http\FormRequest;
 class CreateBookRequest extends FormRequest {
 	protected $author;
 	public function authorize() {
+		return true;
 		return $this->user()->can('create', Book::class);
 	}
 
@@ -18,14 +19,14 @@ class CreateBookRequest extends FormRequest {
 	 */
 	public function rules() {
 		return [
-			'title' => 'required|string|unique',
+			'title' => 'required|string|unique:books',
 			'pages' => 'required|integer',
 			'about' => 'required|about',
 			'published' => 'required|date',
 			'price' => 'required|integer',
 			'translation' => 'string',
 			'authors' => 'required|array',
-			'ISBN' => 'required|string|unique'
+			'ISBN' => 'required|string|unique:books'
 		];
 	}
 
