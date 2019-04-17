@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@home');
+Route::get('/contact', 'HomeController@contact');
+Route::get('/catalogo', 'BookController@index');
+Route::get('datatable/list', 'DatatableController@list');
+foreach (\File::allFiles(__DIR__ . "/web") as $routeFile) {
+	include $routeFile;
+}

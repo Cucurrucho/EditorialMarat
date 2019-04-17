@@ -11,6 +11,12 @@ use App\Http\Controllers\Controller;
 
 class BookController extends Controller {
 
+	public function index() {
+		$title = 'Libros';
+		$createTitle = 'Agregar Libro';
+		return view('admin.datatableWithNew', compact('title', 'createTitle'));
+	}
+
 	public function create() {
 		return (new Book)->fullData;
 	}

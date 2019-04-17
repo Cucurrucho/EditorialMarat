@@ -12,6 +12,7 @@ class UpdateAuthorRequest extends FormRequest {
 	 * @return bool
 	 */
 	public function authorize() {
+		return true;
 		$this->author = $this->route('author');
 		return $this->user()->can('update', $this->author);
 	}
@@ -23,7 +24,7 @@ class UpdateAuthorRequest extends FormRequest {
 	 */
 	public function rules() {
 		return [
-			'name' => 'required|string|unique',
+			'name' => 'required|string|unique:authors,name,' . $this->author->id,
 			'about' => 'required|string'
 		];
 	}

@@ -12,6 +12,7 @@ class UpdateBookRequest extends FormRequest {
 	 * @return bool
 	 */
 	public function authorize() {
+		return true;
 		$this->book = $this->route('book');
 		return $this->user()->can('update', $this->book);
 	}
@@ -23,14 +24,14 @@ class UpdateBookRequest extends FormRequest {
 	 */
 	public function rules() {
 		return [
-			'title' => 'required|string|unique',
+			'title' => 'required|string|unique:books,title,' . $this->book->id ,
 			'pages' => 'required|integer',
 			'about' => 'required|about',
 			'published' => 'required|date',
 			'price' => 'required|integer',
 			'translation' => 'string',
 			'authors' => 'required|array',
-			'ISBN' => 'required|string|unique'
+			'ISBN' => 'required|string|unique:books,ISBN,' . $this->book->id
 		];
 	}
 
