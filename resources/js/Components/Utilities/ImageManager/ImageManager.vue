@@ -17,12 +17,6 @@
 		},
 
 		props: {
-			initImages: {
-				type: Array,
-				default() {
-					return [];
-				}
-			},
 			url: {
 				type: String,
 				required: true
@@ -38,12 +32,20 @@
 					return {};
 				}
 			},
+			imageUrl: {
+				type: String,
+				required: true
+			}
 		},
 
 		data() {
 			return {
-				images: this.initImages
+				images: []
 			}
+		},
+
+		mounted() {
+			this.getImages();
 		},
 
 		methods: {
@@ -56,6 +58,10 @@
 					return item.id == image.id;
 				});
 				this.images.splice(index, 1);
+			},
+			async getImages(){
+				const response = await axios.get(this.imageUrl);
+				this.images = response.data
 			}
 		}
 	}

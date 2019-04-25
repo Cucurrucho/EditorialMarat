@@ -14,6 +14,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 		Route::patch('/edit/{book}', 'BookController@update');
 		Route::get('/edit/{book}', 'BookController@edit');
 		Route::delete('/delete/{book}', 'BookController@destroy');
+		Route::post('/photo/{book}', 'BookController@storePhoto');
+		Route::delete('/photo/{book}/{photo}', 'BookController@destroyPhoto');
+		Route::get('/photos/{book}', 'BookController@getBookPhotos');
 	});
 	Route::group(['prefix' => 'contenido'], function (){
 		Route::get('/' , 'ContentController@show');

@@ -16,10 +16,13 @@ return [
 			'title' => 'Titulo',
 			'sortField' => 'titulo',
 		], [
-			'name' => 'name',
-			'table' => 'authors',
+			'name' => 'authorsList',
+			'noTable' => true,
+			'filterFields' => ['authors.name'],
+			'filter' => function () {
+				return \App\Models\Author::all()->pluck('name', 'name');
+			},
 			'title' => 'Autor',
-			'sortField' => 'autor',
 		]
 	]
 ];

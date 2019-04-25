@@ -12,7 +12,7 @@ $under-desktop: "only screen and (max-width : #{$tablet})";
 
 
 // Body
-$body-bg: #f4f4f4;
+$body-bg: #efefef;
 $contrast-bg: invert($body-bg);
 $gap: 32px;
 
@@ -42,4 +42,3 @@ $tabs-link-active-color: $red;
 $tabs-link-active-border-bottom-color: $red;
 $tabs-toggle-link-active-background-color: $red;
 $tabs-toggle-link-active-border-color: $red;
-$navbar-item-color: $red;

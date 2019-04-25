@@ -5,9 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model {
+
+	protected $appends = [
+		'authorsList'
+	];
+
 	public function authors() {
 		return $this->belongsToMany(Author::class);
 	}
+
+	public function photos() {
+		return $this->hasMany(Photo::class);
+	}
+
 
 	public function getFullDataAttribute() {
 		return collect([
@@ -38,7 +48,7 @@ class Book extends Model {
 				'value' => $this->authors()->select('name', 'authors.id')->get(),
 			],
 			[
-				'name' => 'precio',
+				'name' => 'price',
 				'label' => 'Precio',
 				'type' => 'text',
 				'subType' => 'number',
@@ -64,5 +74,9 @@ class Book extends Model {
 				'value' => $this->ISBN ?? ''
 			]
 		]);
+	}
+
+	public function getAuthorsListAttribute() {
+		return $this->authors->implode('name', ', ');
 	}
 }

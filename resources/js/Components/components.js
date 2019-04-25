@@ -9,6 +9,7 @@ Vue.component('Navbar', require('./Global/Navbar').default);
 Vue.component('toast', require('./Global/Toast').default);
 Vue.component('FireworksModal', require('./Global/FireworksModal').default);
 Vue.component('ConfirmationSubmit', require('./Global/ConfirmationSubmit').default);
+Vue.component('Catalogue', require('./Catalouge/Catalogue').default);
 
 // utilities
 Vue.component('Drawer', require('./Utilities/Drawer').default);
@@ -18,8 +19,6 @@ Vue.component('ModalComponent', require('./Utilities/ModalComponent').default);
 Vue.component('Tabs', require('./Utilities/Tabs/Tabs').default);
 Vue.component('Tab', require('./Utilities/Tabs/Tab').default);
 Vue.component('Carousel', require('./Utilities/Carousel').default);
-Vue.component('SelectChooser', require('./Utilities/SelectChooser/SelectChooser').default);
-Vue.component('SelectView', require('./Utilities/SelectChooser/SelectView').default);
 Vue.component('DynamicTable', require('./Utilities/DynamicTable').default);
 Vue.component('ImageManager', require('./Utilities/ImageManager/ImageManager').default);
 
@@ -33,7 +32,6 @@ Vue.component('TextareaField', require('./Form/TextareatField').default);
 Vue.component('SelectField', require('./Form/SelectField').default);
 Vue.component('FileField', require('./Form/FileField').default);
 Vue.component('CheckboxField', require('./Form/CheckboxField').default);
-Vue.component('InvoiceField', require('./Form/InvoiceField').default);
 Vue.component('AlternativeSubmitField', require('./Form/AlternativeSubmitField').default);
 Vue.component('JsonField', require('./Form/JsonField').default);
 Vue.component('HelpField', require('./Form/HelpField').default);

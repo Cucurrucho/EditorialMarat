@@ -6,12 +6,9 @@
 	<div>
 		@component('components.datatableWithNew')
 			@slot('formattersData', $formattersData ?? null)
-			@slot('customUrl',$customUrl ?? null)
-			@slot('fieldType', $fieldType ?? null)
 			@slot('createTitle', $createTitle)
-			@slot('withEditLink', $withEditLink ?? true)
 			@slot('buttons', $buttons ?? null)
-			@slot('extraSlotView', $extraSlotView ?? null)
+			@slot('extraSlotView', 'admin.imageManager')
 		@endcomponent
 	</div>
 @endsection

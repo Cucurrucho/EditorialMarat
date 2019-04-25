@@ -21,10 +21,9 @@ class CreateBookRequest extends FormRequest {
 		return [
 			'title' => 'required|string|unique:books',
 			'pages' => 'required|integer',
-			'about' => 'required|about',
+			'about' => 'required|string',
 			'published' => 'required|date',
 			'price' => 'required|integer',
-			'translation' => 'string',
 			'authors' => 'required|array',
 			'ISBN' => 'required|string|unique:books'
 		];
@@ -39,8 +38,8 @@ class CreateBookRequest extends FormRequest {
 		$book->price = $this->input('price');
 		$book->translation = $this->input('translation');
 		$book->ISBN = $this->input('ISBN');
-		$book->authors()->attach($this->input('authors'));
 		$book->save();
+		$book->authors()->attach($this->input('authors'));
 		return $book;
 	}
 }
