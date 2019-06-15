@@ -20,7 +20,7 @@ class CreatePhotosTable extends Migration
 			$table->timestamps();
 
 			$table->foreign('book_id')
-				->references('id')->on('book')
+				->references('id')->on('books')
 				->onDelete('cascade');
         });
     }
