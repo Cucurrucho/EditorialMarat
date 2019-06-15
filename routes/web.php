@@ -11,8 +11,7 @@
 |
 */
 
-$domain = parse_url(env('APP_URL'), PHP_URL_HOST);
-Route::domain($domain)->group(function () {
+Route::domain(env('APP_DOMAIN'))->group(function () {
 	Route::get('/', 'BookController@index');
 	Route::get('/libros/{photo}', 'PhotoController@show');
 	Route::get('/contacto', 'HomeController@contact');
