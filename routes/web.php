@@ -11,7 +11,8 @@
 |
 */
 
-Route::domain('marat.test')->group(function () {
+$domain = parse_url(env('APP_URL'), PHP_URL_HOST);
+Route::domain($domain)->group(function () {
 	Route::get('/', 'BookController@index');
 	Route::get('/libros/{photo}', 'PhotoController@show');
 	Route::get('/contacto', 'HomeController@contact');
