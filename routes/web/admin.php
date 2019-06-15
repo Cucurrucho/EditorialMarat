@@ -1,7 +1,7 @@
 <?php
 $domain = 'admin.' . parse_url(env('APP_URL'), PHP_URL_HOST);
 
-Route::domain('admin.marat.test')->group(function () {
+Route::domain($domain)->group(function () {
 	Auth::routes(['register' => 'false']);
 	Route::namespace('Admin')->middleware('auth')->group(function (){
 		Route::get('/', function (){
