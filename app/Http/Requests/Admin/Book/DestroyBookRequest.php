@@ -13,7 +13,6 @@ class DestroyBookRequest extends FormRequest {
 	 * @return bool
 	 */
 	public function authorize() {
-		$this->book = $this->route('book');
 		return Auth::check();
 	}
 
@@ -29,6 +28,7 @@ class DestroyBookRequest extends FormRequest {
 	}
 
 	public function commit() {
-		$this->book->delete();
+
+		$this->route('book')->delete();
 	}
 }

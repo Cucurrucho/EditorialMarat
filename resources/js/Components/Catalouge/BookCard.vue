@@ -2,7 +2,7 @@
     <div class="card book">
         <carousel :photos="book.photos"></carousel>
         <div class="card-content">
-            <a :href="book.id">
+            <a :href="book.url">
                 <p class="title" v-text="book.title"></p>
             </a>
             <p class="subtitle" v-text="book.authorsList"></p>

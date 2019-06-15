@@ -26,7 +26,7 @@
 							  @vuetable:loading='tableLoading'
 							  @vuetable:loaded='tableLoaded'>
 						<template :v-if="deleteSlot" #delete="props">
-							<datatable-delete-form :delete-btn="deleteBtn" :action="deleteAction + props.rowData.id"
+							<datatable-delete-form :delete-btn="deleteBtn" :action="deleteAction + props.rowData.title"
 												   :key="`delete${props.rowData.id}`" @success="refresh">
 
 							</datatable-delete-form>

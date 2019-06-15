@@ -15,7 +15,7 @@ class HomeController extends Controller {
 	public function contact() {
 		$fields = collect([[
 			'name' => 'email',
-			'label' => 'Email',
+			'label' => 'Correo Electronico',
 			'type' => 'text',
 			'value' => '',
 		], [
@@ -29,7 +29,7 @@ class HomeController extends Controller {
 			'type' => 'text',
 			'value' => '',
 		], [
-			'name' => 'content',
+			'name' => 'body',
 			'label' => 'Contenido',
 			'type' => 'textarea',
 			'value' => ''
@@ -38,6 +38,7 @@ class HomeController extends Controller {
 	}
 
 	public function sendContactEmail(ContactRequest $request) {
-
+		$request->commit();
+		return redirect()->back()->with(['toast' => ['message' => '', 'type' => 'success', 'title' => 'Enviado']]);
 	}
 }

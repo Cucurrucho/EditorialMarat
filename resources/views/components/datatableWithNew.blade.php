@@ -19,7 +19,7 @@
             <div class="title is-7 has-text-centered">
                 @if($withEditLink ?? true)
                     <component :is="object.id ? 'a' : 'div'"
-                               :href="object.id ? `{{Request::url() }}/${object.id}` : '#'">
+                               :href="object.id ? `{{Request::url() }}/${object.title}` : '#'">
                         <span class="is-size-3" v-text="object.name || '{{ $createTitle }}'"></span>
                         <font-awesome-icon icon="link" v-if="object.id"></font-awesome-icon>
                     </component>
@@ -30,7 +30,7 @@
                     </div>
                 @endif
             </div>
-            <dynamic-form :url="'{{Request::url() }}/edit' + (object.id ? `/${object.id}` : '')"
+            <dynamic-form :url="'{{Request::url() }}/edit' + (object.id ? `/${object.title}` : '')"
                           :on-data-update="onUpdate"
                           :method="object.id ? 'patch' : 'post'"
             ></dynamic-form>

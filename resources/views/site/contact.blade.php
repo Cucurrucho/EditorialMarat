@@ -12,7 +12,13 @@
                 <div class="card-content">
                     <form method="post" action="{{action('HomeController@sendContactEmail')}}">
                         @csrf
-                        <dynamic-fields :fields="{{$fields}}">
+                        <dynamic-fields :fields="{{$fields->map(function ($item) use ($errors) {
+                        $fieldName = str_replace(']','',str_replace('[','.',$item['name']));
+
+	                    $item['value'] = old($fieldName, $item['value']);
+	                    $item['error'] = $errors->has($fieldName) ? $errors->get($fieldName): null;
+	                    return $item;
+	                })}}">
                         </dynamic-fields>
                         <div class="mt-1 buttons has-content-justified-center">
                             <button class="button is-link" type="submit">

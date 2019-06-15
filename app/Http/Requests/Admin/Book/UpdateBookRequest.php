@@ -13,7 +13,6 @@ class UpdateBookRequest extends FormRequest {
 	 * @return bool
 	 */
 	public function authorize() {
-		$this->book = $this->route('book');
 		return Auth::check();
 	}
 
@@ -23,6 +22,7 @@ class UpdateBookRequest extends FormRequest {
 	 * @return array
 	 */
 	public function rules() {
+		$this->book = $this->route('book');
 		return [
 			'title' => 'required|string|unique:books,title,' . $this->book->id ,
 			'pages' => 'required|integer',
