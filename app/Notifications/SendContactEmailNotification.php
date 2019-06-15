@@ -40,7 +40,6 @@ class SendContactEmailNotification extends Notification {
 		return (new MailMessage)
 			->replyTo($this->content['email'])
 			->from($this->content['email'])
-
 			->subject($this->content['subject'])
 			->line('De ' . $this->content['name'])
 			->line($this->content['body']);
