@@ -20,6 +20,7 @@ class CreateBooksTable extends Migration {
 			$table->decimal('price');
 			$table->string('translation')->nullable();
 			$table->string('ISBN');
+			$table->string('sale_link');
 			$table->timestamps();
 		});
 	}

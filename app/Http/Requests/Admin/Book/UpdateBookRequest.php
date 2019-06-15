@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin\Book;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UpdateBookRequest extends FormRequest {
 	protected $book;
@@ -12,9 +13,8 @@ class UpdateBookRequest extends FormRequest {
 	 * @return bool
 	 */
 	public function authorize() {
-		return true;
 		$this->book = $this->route('book');
-		return $this->user()->can('update', $this->book);
+		return Auth::check();
 	}
 
 	/**
@@ -26,12 +26,13 @@ class UpdateBookRequest extends FormRequest {
 		return [
 			'title' => 'required|string|unique:books,title,' . $this->book->id ,
 			'pages' => 'required|integer',
-			'about' => 'required|about',
+			'about' => 'required|string',
 			'published' => 'required|date',
-			'price' => 'required|integer',
-			'translation' => 'string',
+			'price' => 'required|numeric',
+			'translation' => 'string|nullable',
 			'authors' => 'required|array',
-			'ISBN' => 'required|string|unique:books,ISBN,' . $this->book->id
+			'ISBN' => 'string|unique:books,ISBN,' . $this->book->id,
+			'saleLink' => 'string'
 		];
 	}
 
@@ -43,7 +44,8 @@ class UpdateBookRequest extends FormRequest {
 		$this->book->price = $this->input('price');
 		$this->book->translation = $this->input('translation');
 		$this->book->ISBN = $this->input('ISBN');
-		$this->book->authors()->attach($this->input('authors'));
+		$this->book->sale_link = $this->input('saleLink');
+		$this->book->authors()->sync($this->input('authors'));
 		$this->book->save();
 		return $this->book;
 	}

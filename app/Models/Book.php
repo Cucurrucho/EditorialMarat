@@ -52,7 +52,7 @@ class Book extends Model {
 				'label' => 'Precio',
 				'type' => 'text',
 				'subType' => 'number',
-				'value' => $this->precio ?? '',
+				'value' => $this->price ?? '',
 			],
 			[
 				'name' => 'translation',
@@ -72,6 +72,12 @@ class Book extends Model {
 				'label' => 'ISBN',
 				'type' => 'text',
 				'value' => $this->ISBN ?? ''
+			],
+			[
+				'name' => 'saleLink',
+				'label' => 'Enlace de venta',
+				'type' => 'text',
+				'value' => $this->sale_link ?? ''
 			]
 		]);
 	}

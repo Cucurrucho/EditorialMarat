@@ -15,15 +15,18 @@
         </div>
         <div id="mainNav" class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item navbar-text nav-link" href="{{action('HomeController@home')}}">
+                <a class="navbar-item  nav-link {{Request::is('marat') ? 'is-active' : '' }}"
+                   href="{{action('HomeController@show')}}">
                     Marat
                 </a>
                 <hr class="navbar-divider">
-                <a class="navbar-item navbar-text nav-link" href="{{action('BookController@index')}}">
+                <a class="navbar-item nav-link {{Request::is('/') ? 'is-active' : '' }}"
+                   href="{{action('BookController@index')}}">
                     Catalogo
                 </a>
                 <hr class="navbar-divider">
-                <a class="navbar-item navbar-text nav-link" href="{{action('HomeController@contact')}}">
+                <a class="navbar-item nav-link {{Request::is('contacto') ? 'is-active' : '' }}"
+                   href="{{action('HomeController@contact')}}">
                     Contacto
                 </a>
             </div>
@@ -47,4 +50,18 @@
             </div>
         </div>
     </main>
+    @yield('footer')
+@endsection
+@section('scripts')
+    <script type="text/javascript">
+        (function () {
+            var burger = document.querySelector('.burger');
+            var nav = document.querySelector('#' + burger.dataset.target);
+            burger.addEventListener('click', function () {
+                burger.classList.toggle('is-active');
+                nav.classList.toggle('is-active');
+            });
+        })();
+    </script>
+
 @endsection

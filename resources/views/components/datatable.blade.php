@@ -30,7 +30,7 @@ $filters = collect($filters ?? [])->merge(json_decode(\Request::get('filters', '
 		   @if(isset($customUrl))
 		   url="{{$customUrl}}"
 		   @else
-		   url="\datatable"
+		   url="/libros/datatable"
 		   @endif
 		   :labels="{
 		   		pagination: '@lang('datatable.pagination')',

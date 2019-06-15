@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="book-image">
         <div v-for="(photo, index) in photos" :key="index" v-show="active == index" class="card-image">
             <figure class="image is-5by3">
                 <img :src="photo.url">
@@ -29,13 +29,11 @@
                 required: true
             }
         },
-
         data() {
             return {
                 active: 0
             }
         },
-
         methods: {
             changePhoto(direction) {
                 this.active += direction;
@@ -52,38 +50,32 @@
 
 <style scoped lang="scss">
     @import "../../../sass/variables";
-
+    .book-image {
+        position: relative;
+    }
     .arrow {
         cursor: pointer;
         position: absolute;
         top: 0;
         height: 100%;
         width: 3rem;
-        color: black;
+        color: white;
         display: flex;
         justify-content: center;
         align-items: center;
         font-size: 1.5rem;
-
         &:hover {
             color: $cyan;
         }
     }
-
     .previous {
         left: 0;
     }
-
     .image {
         position: relative;
-        height: 35rem;
-
+        height: 30rem;
     }
-
     .next {
         right: 0;
-    }
-    .card-image {
-        height: 100%;
     }
 </style>

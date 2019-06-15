@@ -4,12 +4,13 @@ namespace App\Http\Requests\Admin\Book;
 
 use App\Models\Book;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class CreateBookRequest extends FormRequest {
-	protected $author;
+
+
 	public function authorize() {
-		return true;
-		return $this->user()->can('create', Book::class);
+		return Auth::check();
 	}
 
 	/**
@@ -23,13 +24,15 @@ class CreateBookRequest extends FormRequest {
 			'pages' => 'required|integer',
 			'about' => 'required|string',
 			'published' => 'required|date',
+			'translation' => 'string|nullable',
 			'price' => 'required|integer',
 			'authors' => 'required|array',
-			'ISBN' => 'required|string|unique:books'
+			'ISBN' => 'string|unique:books',
+			'saleLink' => 'string'
 		];
 	}
 
-	public function commit(){
+	public function commit() {
 		$book = new Book;
 		$book->title = $this->input('title');
 		$book->pages = $this->input('pages');
@@ -38,6 +41,7 @@ class CreateBookRequest extends FormRequest {
 		$book->price = $this->input('price');
 		$book->translation = $this->input('translation');
 		$book->ISBN = $this->input('ISBN');
+		$book->sale_link = $this->input('saleLink');
 		$book->save();
 		$book->authors()->attach($this->input('authors'));
 		return $book;

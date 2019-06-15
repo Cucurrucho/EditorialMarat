@@ -28,10 +28,22 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
     .book {
-        max-width: 30%;
+        @media only screen and (min-width: 769px) {
+            max-width: 30%;
+        }
         margin: 1rem;
 
     }
+
+    .title {
+        color: darkred;
+
+    }
+    .title:hover {
+        color: #0f81cc;
+    }
+
+
 </style>

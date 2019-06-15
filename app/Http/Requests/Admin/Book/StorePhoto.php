@@ -4,6 +4,7 @@ namespace App\Http\Requests\Admin\Book;
 
 use App\Models\Photo;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 use Storage;
 use Image;
 
@@ -20,8 +21,7 @@ class StorePhoto extends FormRequest {
 	 */
 	public function authorize() {
 		$this->book = $this->route('book');
-		return true;
-		return $this->user()->can('update', $this->book);
+		return Auth::check();
 	}
 
 	/**

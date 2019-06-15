@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin\Author;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class DestroyAuthorRequest extends FormRequest {
 	protected $author;
@@ -12,9 +13,8 @@ class DestroyAuthorRequest extends FormRequest {
 	 * @return bool
 	 */
 	public function authorize() {
-		return true;
 		$this->author = $this->route('author');
-		return $this->user()->can('delete', $this->author);
+		return Auth::check();
 	}
 
 	/**

@@ -1,4 +1,4 @@
-<image-manager v-if="object" :url="'{{Request::url() }}/photo' + (object.id ? `/${object.id}` : '')"  :data="{
+<image-manager v-if="object.id" :url="'{{Request::url() }}/photo' + (object.id ? `/${object.id}` : '')"  :data="{
 						_token: '{{csrf_token()}}'
 					}"
 			   :image-url="'{{Request::url() }}/photos' + (object.id ? `/${object.id}` : '')"

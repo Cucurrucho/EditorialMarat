@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin\Book;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class DestroyBookRequest extends FormRequest {
 	protected $book;
@@ -12,9 +13,8 @@ class DestroyBookRequest extends FormRequest {
 	 * @return bool
 	 */
 	public function authorize() {
-		return true;
 		$this->book = $this->route('book');
-		return $this->user()->can('delete', $this->book);
+		return Auth::check();
 	}
 
 	/**

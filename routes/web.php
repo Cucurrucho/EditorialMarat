@@ -11,13 +11,17 @@
 |
 */
 
-Route::get('/', 'HomeController@home');
-Route::get('/libros/{photo}', 'PhotoController@show');
-Route::get('/contact', 'HomeController@contact');
-Route::post('/contact', 'HomeController@sendContactEmail');
-Route::get('/catalogo', 'BookController@index');
-Route::get('datatable/list', 'DatatableController@list');
-Route::get('/{book}', 'BookController@show');
+Route::domain('marat.test')->group(function () {
+	Route::get('/', 'BookController@index');
+	Route::get('/libros/{photo}', 'PhotoController@show');
+	Route::get('/contacto', 'HomeController@contact');
+	Route::post('/contacto', 'HomeController@sendContactEmail');
+	Route::get('/marat', 'HomeController@show');
+	Route::get('/{book}', 'BookController@show');
+});
+
 foreach (\File::allFiles(__DIR__ . "/web") as $routeFile) {
 	include $routeFile;
 }
+
+

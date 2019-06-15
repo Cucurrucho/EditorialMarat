@@ -31,7 +31,7 @@ class BookController extends Controller {
 		return $book->fullData;
 	}
 
-	public function update(UpdateBookRequest $request) {
+	public function update(UpdateBookRequest $request, Book $book) {
 		return $request->commit();
 	}
 
@@ -54,6 +54,6 @@ class BookController extends Controller {
 	}
 
 	public function getBookPhotos(Book $book) {
-		return $book->photos;
+		return $book->photos ?? '';
 	}
 }

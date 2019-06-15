@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller {
 
-	public function home() {
+	public function show(Request $request) {
 		$about = app('content')->get('sobre');
 		return view('site.home', compact('about'));
 	}

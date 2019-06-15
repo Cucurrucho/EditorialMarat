@@ -41,7 +41,7 @@ class SendContactEmailNotification extends Notification {
 			->from($this->content['email'])
 
 			->subject($this->content['subject'])
-			->line($this->content['name'])
+			->line('De ' . $this->content['name'])
 			->line($this->content['body']);
 	}
 

@@ -37,7 +37,7 @@ class ContactRequest extends FormRequest {
 			'body' => $this->input('body'),
 			'subject' => $this->input('subject')
 		];
-		Notification::route('mail', env(CONTACT_DESTINATION_MAIL))->notify(
+		Notification::route('mail', 'marat@gmail.com')->notify(
 			new SendContactEmailNotification($content)
 		);
 	}

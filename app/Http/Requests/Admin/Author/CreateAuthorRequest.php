@@ -4,6 +4,7 @@ namespace App\Http\Requests\Admin\Author;
 
 use App\Models\Author;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class CreateAuthorRequest extends FormRequest {
 	/**
@@ -12,8 +13,7 @@ class CreateAuthorRequest extends FormRequest {
 	 * @return bool
 	 */
 	public function authorize() {
-		return true;
-		return $this->user()->can('create', Author::class);
+		return Auth::check();
 	}
 
 	/**

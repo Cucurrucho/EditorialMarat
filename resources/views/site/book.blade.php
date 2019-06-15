@@ -17,6 +17,8 @@
                         <br>
                         <span class="title is-5">Paginas:</span><span> {{$book->pages}}</span>
                         <br>
+                        <span class="title is-5">Comprar: </span><span> <a href="{{$book->sale_link}}">Mercadolibre</a></span>
+                        <br>
                         @isset($book->translation)
                             <span class="title is-5">Traduccion:</span><span> {{$book->translation}}</span>
                             <br>
@@ -29,10 +31,21 @@
                             {{$book->about}}
                         </div>
                         <br>
-                        <p class="title is-4">Sobre El Autor:</p>
-                        <div class="content">
-                            {{$book->authors->first()->about}}
-                        </div>
+                        @if($book->authors->count() > 1)
+                            <P class="title is-4">Sobre Los Autores</P>
+                            @foreach($book->authors as $author)
+                                <br>
+                                <p class="title is-5">{{$author->name}}</p>
+                                <div class="content">
+                                    {{$author->about}}
+                                </div>
+                            @endforeach
+                        @else
+                            <p class="title is-4">Sobre El Autor:</p>
+                            <div class="content">
+                                {{$book->authors->first()->about}}
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
