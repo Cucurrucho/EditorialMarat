@@ -6,14 +6,12 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
 class DestroyAuthorRequest extends FormRequest {
-	protected $author;
 	/**
 	 * Determine if the user is authorized to make this request.
 	 *
 	 * @return bool
 	 */
 	public function authorize() {
-		$this->author = $this->route('author');
 		return Auth::check();
 	}
 
@@ -29,6 +27,6 @@ class DestroyAuthorRequest extends FormRequest {
 	}
 
 	public function commit() {
-		$this->author->delete();
+		$this->route('author')->delete();
 	}
 }

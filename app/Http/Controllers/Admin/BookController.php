@@ -54,6 +54,6 @@ class BookController extends Controller {
 	}
 
 	public function getBookPhotos(Book $book) {
-		return $book->photos ?? '';
+		return $book->photos;
 	}
 }

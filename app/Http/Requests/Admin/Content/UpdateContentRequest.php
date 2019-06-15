@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin\Content;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UpdateContentRequest extends FormRequest {
 	protected $content;
@@ -14,7 +15,7 @@ class UpdateContentRequest extends FormRequest {
 	 * @return bool
 	 */
 	public function authorize() {
-		return true;
+		return Auth::check();
 	}
 
 	/**

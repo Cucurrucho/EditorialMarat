@@ -9,8 +9,7 @@ use App\Http\Controllers\Controller;
 class ContentController extends Controller {
 
 	public function show() {
-		$content = app('content');
-		$content = $content->all();
+		$content = app('content')->all();
 		return view('admin.content', compact('content'));
 
 	}

@@ -23,10 +23,10 @@ class ContactRequest extends FormRequest {
 	 */
 	public function rules() {
 		return [
-			'name' => 'required|string',
+			'name' => 'required|string|min:3',
 			'email' => 'required|email',
-			'subject' => 'required|string',
-			'body' => 'required|string'
+			'subject' => 'required|string|min:3',
+			'body' => 'required|string|min:10'
 		];
 	}
 
@@ -37,7 +37,7 @@ class ContactRequest extends FormRequest {
 			'body' => $this->input('body'),
 			'subject' => $this->input('subject')
 		];
-		Notification::route('mail', 'marat@gmail.com')->notify(
+		Notification::route('mail', env('CONTACT_DESTINATION_MAIL'))->notify(
 			new SendContactEmailNotification($content)
 		);
 	}

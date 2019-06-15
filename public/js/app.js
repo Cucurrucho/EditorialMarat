@@ -58044,7 +58044,7 @@ var render = function() {
       _c("carousel", { attrs: { photos: _vm.book.photos } }),
       _vm._v(" "),
       _c("div", { staticClass: "card-content" }, [
-        _c("a", { attrs: { href: _vm.book.id } }, [
+        _c("a", { attrs: { href: _vm.book.url } }, [
           _c("p", {
             staticClass: "title",
             domProps: { textContent: _vm._s(_vm.book.title) }
@@ -59048,7 +59048,7 @@ var render = function() {
                           key: "delete" + props.rowData.id,
                           attrs: {
                             "delete-btn": _vm.deleteBtn,
-                            action: _vm.deleteAction + props.rowData.id
+                            action: _vm.deleteAction + props.rowData.title
                           },
                           on: { success: _vm.refresh }
                         })

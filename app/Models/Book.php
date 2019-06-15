@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model {
 
 	protected $appends = [
-		'authorsList'
+		'authorsList',
+		'url'
 	];
 
 	public function authors() {
@@ -84,5 +85,13 @@ class Book extends Model {
 
 	public function getAuthorsListAttribute() {
 		return $this->authors->implode('name', ', ');
+	}
+
+	public function getRouteKeyName() {
+		return 'title';
+	}
+
+	public function getUrlAttribute() {
+		return action('BookController@show', $this);
 	}
 }

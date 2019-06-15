@@ -12,7 +12,6 @@ class StorePhoto extends FormRequest {
 	/**
 	 * @var \Illuminate\Routing\Route|object|string
 	 */
-	private $book;
 
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -20,7 +19,6 @@ class StorePhoto extends FormRequest {
 	 * @return bool
 	 */
 	public function authorize() {
-		$this->book = $this->route('book');
 		return Auth::check();
 	}
 
@@ -39,7 +37,7 @@ class StorePhoto extends FormRequest {
 		$path = $this->processPhoto();
 		$photo = new Photo();
 		$photo->file = basename($path);
-		$this->book->photos()->save($photo);
+		$this->route('book')->photos()->save($photo);
 
 		return $photo;
 	}
