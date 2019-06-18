@@ -11,7 +11,7 @@
                     <form method="post" action="{{ action('Auth\LoginController@login') }}">
                         @csrf
                         <text-field
-                                :field="{label: 'Correo Electronico', name: 'email', subType: 'email'}"
+                                :field="{label: 'Correo Electrónico', name: 'email', subType: 'email'}"
                                 :error="{{ $errors->count() ? collect([__('auth.failed')]): 'null'}}"></text-field>
                         <text-field
                                 :field="{label: 'Contraseña', name: 'password', subType: 'password'}"></text-field>

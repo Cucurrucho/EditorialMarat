@@ -22,7 +22,7 @@
                 <hr class="navbar-divider">
                 <a class="navbar-item nav-link {{Request::is('/') ? 'is-active' : '' }}"
                    href="{{action('BookController@index')}}">
-                    Catalogo
+                    Catálogo
                 </a>
                 <hr class="navbar-divider">
                 <a class="navbar-item nav-link {{Request::is('contacto') ? 'is-active' : '' }}"
@@ -31,13 +31,13 @@
                 </a>
             </div>
             <div class="navbar-end">
-                <a class="navbar-item" href="https://www.facebook.com/MaratEditorial/">
+                <a class="navbar-item" href="https://www.facebook.com/MaratEditorial/" target="_blank">
                     <i class="fab fa-facebook-square fa-2x"></i>
                 </a>
-                <a class="navbar-item" href="https://www.instagram.com/editorialmarat/">
+                <a class="navbar-item" href="https://www.instagram.com/editorialmarat/" target="_blank">
                     <i class="fab fa-instagram fa-2x"></i>
                 </a>
-                <a class="navbar-item" href="https://twitter.com/EditorialMarat">
+                <a class="navbar-item" href="https://twitter.com/EditorialMarat" target="_blank">
                     <i class="fab fa-twitter-square fa-2x"></i>
                 </a>
             </div>
@@ -50,7 +50,23 @@
             </div>
         </div>
     </main>
-    @yield('footer')
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p class="title">
+                Distribución:
+            </p>
+            <span class="title is-5">Argentina: </span><a href="https://www.waldhuter.com.ar/"
+                                                          target="_blank">Waldhuter</a>
+            <br>
+            <span class="title is-5">España: </span><a href="https://www.traficantes.net/" target="_blank">Traficantes
+                de Sueños</a>
+            <br>
+            <span class="title is-5">Resto Del Mundo: </span><a href="{{action('HomeController@contact')}}"
+                                                                target="_blank">Contactanos</a>
+            <hr>
+            <span class="title is-6">Sitio Creado Por </span><a href="https://elcoop.io/" target="_blank">elcoop.io</a>
+        </div>
+    </footer>
 @endsection
 @section('scripts')
     <script type="text/javascript">

@@ -1,6 +1,6 @@
 <?php
 return [
-	'Catalogo' => [
+	'Catálogo' => [
 		'Autores' => 'Admin\AuthorController@index',
 		'Libros' => 'Admin\BookController@index',
 	],
