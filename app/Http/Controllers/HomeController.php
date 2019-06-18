@@ -15,7 +15,7 @@ class HomeController extends Controller {
 	public function contact() {
 		$fields = collect([[
 			'name' => 'email',
-			'label' => 'Correo Electronico',
+			'label' => 'Correo Electrónico ',
 			'type' => 'text',
 			'value' => '',
 		], [

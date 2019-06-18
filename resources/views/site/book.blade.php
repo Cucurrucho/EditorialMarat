@@ -17,7 +17,7 @@
                         <br>
                         <span class="title is-5">Paginas:</span><span> {{$book->pages}}</span>
                         <br>
-                        <span class="title is-5">Comprar: </span><span> <a href="{{$book->sale_link}}">Mercadolibre</a></span>
+                        <span class="title is-5">Comprar: </span><span> <a href="{{$book->sale_link}}" target="_blank">Mercadolibre</a></span>
                         <br>
                         @isset($book->translation)
                             <span class="title is-5">Traduccion:</span><span> {{$book->translation}}</span>

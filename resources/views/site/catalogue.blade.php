@@ -1,5 +1,5 @@
 @extends('layouts.site')
-@section('title', 'Catalogo')
+@section('title', 'Catálogo')
 @section('content')
     <catalogue :books="{{$books}}">
 

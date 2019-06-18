@@ -141,7 +141,7 @@ return [
 		'name' => 'Nombre',
 		'subject' => 'Asunto',
 		'body' => 'Contenido',
-		'email' => 'Correo Electronico'
+		'email' => 'Correo Electrónico'
 	],
 
 ];
