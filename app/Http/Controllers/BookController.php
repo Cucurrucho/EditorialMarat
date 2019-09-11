@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class BookController extends Controller {
 
 	public function index() {
-		$books = Book::with('photos')->orderBy('published')->get();
+		$books = Book::with('photos')->orderBy('published', 'desc')->get();
 		return view('site.catalogue', compact('books'));
 	}
 
