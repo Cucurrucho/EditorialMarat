@@ -55,8 +55,8 @@
             <p class="title">
                 Distribución:
             </p>
-            <span class="title is-5">Argentina: </span><a href="https://www.waldhuter.com.ar/"
-                                                          target="_blank">Waldhuter</a>
+            <span class="title is-5">Argentina: </span><a href="http://la-periferica.com.ar/distribuidora/"
+                                                          target="_blank">Periférica Distrubuidora</a>
             <br>
             <span class="title is-5">España: </span><a href="https://www.traficantes.net/" target="_blank">Traficantes
                 de Sueños</a>
