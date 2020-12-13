@@ -29,6 +29,11 @@
                    href="{{action('HomeController@contact')}}">
                     Contacto
                 </a>
+                <hr class="navbar-divider">
+                <a class="navbar-item nav-link {{Request::is('blog') ? 'is-active' : '' }}"
+                   href="{{action('HomeController@blog')}}">
+                    Blog
+                </a>
             </div>
             <div class="navbar-end">
                 <a class="navbar-item" href="https://www.facebook.com/MaratEditorial/" target="_blank">

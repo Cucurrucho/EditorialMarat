@@ -17,7 +17,10 @@ Route::domain(env('APP_DOMAIN'))->group(function () {
 	Route::get('/contacto', 'HomeController@contact');
 	Route::post('/contacto', 'HomeController@sendContactEmail');
 	Route::get('/marat', 'HomeController@show');
-	Route::get('/{book}', 'BookController@show');
+    Route::get('/blog', 'HomeController@blog');
+    Route::get('/{book}', 'BookController@show');
+    Route::get('/blog/{blogPost}', 'HomeController@blogPost');
+    Route::get('/blog/photo/{blogPhoto}', 'PhotoController@blogPhoto');
 });
 
 foreach (\File::allFiles(__DIR__ . "/web") as $routeFile) {
