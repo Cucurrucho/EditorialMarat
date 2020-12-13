@@ -30,3 +30,7 @@ Vue.component('TextareaField', require('./Form/TextareatField').default);
 Vue.component('AlternativeSubmitField', require('./Form/AlternativeSubmitField').default);
 Vue.component('HelpField', require('./Form/HelpField').default);
 Vue.component('MultiselectField', require('./Form/MultiselectField').default);
+
+
+// blog
+Vue.component('Editor', require('./Blog/Editor').default);

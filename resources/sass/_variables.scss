@@ -34,10 +34,10 @@ $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
 
-$menu-item-color: darken($contrast-text, 10);
+$menu-item-color: #b61a0e;
 $menu-item-hover-color: $contrast-text;
-$menu-item-hover-background-color: lighten($contrast-bg, 10);
-$menu-item-active-background-color: lighten($contrast-bg, 10);
+$menu-item-hover-background-color: #b61a0e;
+$menu-item-active-background-color: #b61a0e;
 $tabs-link-active-color: $red;
 $tabs-link-active-border-bottom-color: $red;
 $tabs-toggle-link-active-background-color: $red;

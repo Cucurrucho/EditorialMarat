@@ -5,6 +5,7 @@ return [
 		'Libros' => 'Admin\BookController@index',
 	],
 	'General' => [
-		'Contentido' => 'Admin\ContentController@show'
+		'Contentido' => 'Admin\ContentController@show',
+        'Blog' => 'Admin\BlogController@show'
 	]
 ];

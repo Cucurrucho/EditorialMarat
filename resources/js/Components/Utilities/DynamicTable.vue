@@ -20,7 +20,12 @@
 						<td v-if="hasActions">
 							<slot name="actions" :field="field" :on-update="replaceObject"></slot>
 						</td>
-						<td v-if="action && deleteAllowed">
+						<td v-if="editButton">
+							<a class="button is-primary" :href="`blog/edit/${field.id}`"
+									>Edit
+							</a>
+						</td>
+						<td v-if="deleteAllowed">
 							<button class="button is-danger" type="button"
 									:class="{'is-loading' : deleteing === field.id}"
 									:disabled="field.status === 'protected'"
@@ -32,7 +37,7 @@
 			</table>
 		</div>
 		<div class="buttons" v-if="action">
-			<div class="button is-success" @click="editObject({})" v-text="$translations.add">Add</div>
+			<div class="button is-success" v-if="add" @click="editObject({})" v-text="$translations.add">Add</div>
 			<div v-if="sortable" class="button is-primary" :class="{'is-loading': savingOrder}" @click="saveOrder"
 				 v-text="$translations.saveOrder"></div>
 		</div>
@@ -127,8 +132,11 @@
 
 			sortBy: {
 				type: String
+			},
+			editButton: {
+				type: String,
+				default: ''
 			}
-
 		},
 
 		data() {
