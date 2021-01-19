@@ -37,7 +37,7 @@
 			</table>
 		</div>
 		<div class="buttons" v-if="action">
-			<div class="button is-success" v-if="add" @click="editObject({})" v-text="$translations.add">Add</div>
+			<div class="button is-success" @click="editObject({})" v-text="$translations.add">Add</div>
 			<div v-if="sortable" class="button is-primary" :class="{'is-loading': savingOrder}" @click="saveOrder"
 				 v-text="$translations.saveOrder"></div>
 		</div>
