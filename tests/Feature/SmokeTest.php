@@ -77,6 +77,23 @@ class SmokeTest extends TestCase {
 	}
 
 	#[Test]
+	public function admin_registration_is_disabled(): void {
+		// 405 rather than 404 is expected too: on the admin domain "/register" still matches
+		// the DELETE /{blogPost} route, so the router answers "method not allowed".
+		$this->assertContains($this->get("{$this->admin}/register")->status(), [404, 405]);
+
+		$response = $this->post("{$this->admin}/register", [
+			'name' => 'Intruso',
+			'email' => 'intruso@example.com',
+			'password' => 'secret-password',
+			'password_confirmation' => 'secret-password',
+		]);
+		$this->assertContains($response->status(), [404, 405]);
+
+		$this->assertDatabaseMissing('users', ['email' => 'intruso@example.com']);
+	}
+
+	#[Test]
 	public function photo_upload_is_resized_and_stored_as_jpeg(): void {
 		Storage::fake('local');
 		$book = $this->makeBook();

@@ -1,6 +1,6 @@
 <?php
 Route::domain('admin.' . env('APP_DOMAIN'))->group(function () {
-    Auth::routes(['register' => 'false']);
+    Auth::routes(['register' => false]);
     Route::namespace('Admin')->middleware('auth')->group(function () {
         Route::get('/', function () {
             return redirect()->action('Admin\BookController@index');
