@@ -1,5 +1,8 @@
 <?php
 
+namespace Database\Seeders;
+
+use App\User;
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder {
@@ -9,7 +12,7 @@ class UserSeeder extends Seeder {
 	 * @return void
 	 */
 	public function run() {
-		factory(\App\User::class)->create([
+		User::factory()->create([
 			'email' => 'admin@elcoop.io',
 			'password' => bcrypt('123456'),
 			'name' => 'Admin'
