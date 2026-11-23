@@ -5,8 +5,8 @@ namespace App\Http\Requests\Admin\Book;
 use App\Models\Photo;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\ImageManager;
 use Storage;
-use Image;
 
 class StorePhoto extends FormRequest {
 	/**
@@ -44,25 +44,20 @@ class StorePhoto extends FormRequest {
 
 	protected function processPhoto() {
 		$photo = $this->file('photo');
-		$image = Image::make($photo);
+		$image = ImageManager::gd()->read($photo);
 		$width = $image->width();
 		$height = $image->height();
 		if ($height > 500 || $width > 800) {
 			$proportion = $height / $width;
 			if ($proportion > 1) {
-				$image->resize(round(500 / $proportion), 500);
+				$image->resize((int) round(500 / $proportion), 500);
 			} else {
-				$image->resize(800, round(800 * $proportion));
+				$image->resize(800, (int) round(800 * $proportion));
 			}
 		}
-		$mime = $image->mime();
-		$mime = str_replace('image/', '.', $mime);
-		$hash = $photo->hashName();
-		if ($mime != '.jpeg' || $mime != '.jpeg') {
-			$hash = str_replace($mime, '.jpeg', $photo->hashName());
-		}
+		$hash = pathinfo($photo->hashName(), PATHINFO_FILENAME) . '.jpeg';
 		$path = 'public/photos/' . $hash;
-		Storage::put($path, (string)$image->encode('jpeg'));
+		Storage::put($path, (string) $image->toJpeg());
 		return $path;
 	}
 }
